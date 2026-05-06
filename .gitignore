@@ -1,0 +1,43 @@
+# =========================================================
+# Banking77 PEFT Finetuning — .gitignore
+# =========================================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# --- Environments ---
+.env
+venv/
+conda_envs/
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Model Artifacts (large files) ---
+models/
+data/embeddings/*.npy
+
+# --- Outputs (regenerable) ---
+outputs/
+
+# --- W&B ---
+wandb/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Installer ---
+*.sh
