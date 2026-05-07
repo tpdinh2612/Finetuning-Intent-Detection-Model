@@ -131,7 +131,7 @@ LoRA Baseline shows higher confusion, with **87.44% accuracy**:
 - Large confusion counts (39, 37) suggest potential label preprocessing issues
 - LoRA Baseline's lower recall on minority classes impacts overall performance
 
-### 4.3. Advanced PEFT Pipeline: DoRA + rsLoRA + NEFTune
+### 4.4. Advanced PEFT Pipeline: DoRA + rsLoRA + NEFTune
 
 **Why Advanced PEFT performs better:**
 1. **Weight Decomposition (DoRA):** Separates magnitude from direction, allowing more stable gradient flow
