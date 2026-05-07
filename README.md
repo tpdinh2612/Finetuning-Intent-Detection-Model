@@ -240,6 +240,11 @@ Use the Kaggle notebook for interactive fine-tuning:
 
 ## 7. References & Citations
 
+### Dataset
+
+**Banking77: A New Dataset for State-of-the-art Intent Detection**
+   - Dataset: [Banking77-dataset]([https://huggingface.co/datasets/banking77](https://huggingface.co/datasets/PolyAI/banking77))
+
 ### Papers
 
 1. **DoRA: Weight-Decomposed Low-Rank Adaptation**
@@ -247,21 +252,9 @@ Use the Kaggle notebook for interactive fine-tuning:
    - GitHub: [DoRA-github](https://github.com/NVlabs/DoRA)
    - Key contribution: Weight decomposition into magnitude and direction for stable training
 
-2. **rsLoRA: Rank-Stabilized Low-Rank Adaptation**
-   - Extends LoRA with rank-stabilized scaling and adaptive normalization
-   - Ensures consistent gradient flow regardless of rank size
-
-3. **NEFTune: Noisy Feature Distillation for Instruction Following**
-   - Paper: [NEFTune-paper](https://arxiv.org/abs/2310.02779)
-   - Implementation for improving instruction-following on small datasets
-
-4. **QLoRA: Efficient Finetuning of Quantized LLMs**
+2. **QLoRA: Efficient Finetuning of Quantized LLMs**
    - Paper: [QLoRA-paper](https://arxiv.org/abs/2305.14314)
    - 4-bit quantization technique used in this pipeline
-
-5. **Banking77: A New Dataset for State-of-the-art Intent Detection**
-   - Paper: [Banking77-paper](https://arxiv.org/abs/2010.14304)
-   - Dataset: [Banking77-dataset](https://huggingface.co/datasets/banking77)
 
 ### Libraries & Frameworks
 
@@ -278,10 +271,6 @@ Use the Kaggle notebook for interactive fine-tuning:
   - **Hugging Face Model:** [rajo0113/banking77-llama-1b-lora](https://huggingface.co/rajo0113/banking77-llama-1b-lora)
   - Standard LoRA approach for Banking77 classification
   - Inspired the comparison study in this project
-
-### Relevant Blog Posts & Resources
-
-- Banking77 benchmark discussion: [Banking77-discussion](https://huggingface.co/datasets/banking77)
 
 ---
 
