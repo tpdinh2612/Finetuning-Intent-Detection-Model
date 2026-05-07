@@ -243,7 +243,8 @@ Use the Kaggle notebook for interactive fine-tuning:
 ### Dataset
 
 **Banking77: A New Dataset for State-of-the-art Intent Detection**
-   - Dataset: [Banking77-dataset]([https://huggingface.co/datasets/banking77](https://huggingface.co/datasets/PolyAI/banking77))
+   - Paper: [Banking77-paper](https://arxiv.org/abs/2003.04807)
+   - Dataset: [Banking77-dataset](https://huggingface.co/datasets/PolyAI/banking77)
 
 ### Papers
 
