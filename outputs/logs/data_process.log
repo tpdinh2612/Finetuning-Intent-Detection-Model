@@ -1,0 +1,37 @@
+2026-05-05 22:42:09 | __main__                       | INFO     | Downloading Banking77 dataset from HuggingFace...
+2026-05-05 22:42:20 | __main__                       | INFO     | Successfully loaded dataset with 2 splits
+2026-05-05 22:42:20 | __main__                       | INFO     | Output directory prepared: E:\Download\Finetuning-Intent-Detection-Model\data\raw
+2026-05-05 22:42:20 | __main__                       | INFO     | Dataset saved to: E:\Download\Finetuning-Intent-Detection-Model\data\raw
+2026-05-05 22:43:42 | __main__                       | INFO     | Starting Banking77 dataset processing...
+2026-05-05 22:43:42 | __main__                       | INFO     | Loading raw dataset from: data/raw
+2026-05-05 22:43:43 | __main__                       | INFO     | Loaded dataset with splits: ['train', 'test']
+2026-05-05 22:43:43 | __main__                       | INFO     | Deduplicating training data...
+2026-05-05 22:43:43 | __main__                       | INFO     | Removed 0 duplicate rows
+2026-05-05 22:43:43 | __main__                       | INFO     | Mapping label integers to intent strings...
+2026-05-05 22:43:43 | __main__                       | INFO     | Mapped labels. Unique labels: 77
+2026-05-05 22:43:43 | __main__                       | INFO     | Generating EDA visualizations...
+2026-05-05 22:44:01 | __main__                       | INFO     | Saved visualization: E:\Download\Finetuning-Intent-Detection-Model\outputs\plots\train_dist.png
+2026-05-05 22:44:02 | __main__                       | INFO     | Saved visualization: E:\Download\Finetuning-Intent-Detection-Model\outputs\plots\test_dist.png
+2026-05-05 22:44:03 | __main__                       | INFO     | Splitting training data: 90.0% train, 10.0% validation
+2026-05-05 22:44:03 | __main__                       | INFO     | Split sizes - Train: 9002, Val: 1001, Test: 3080
+2026-05-05 22:44:03 | __main__                       | INFO     | Converting to HuggingFace Dataset format...
+2026-05-05 22:44:03 | __main__                       | INFO     | ✓ Processing complete. Dataset saved to: E:\Download\Finetuning-Intent-Detection-Model\data\processed\split
+2026-05-05 23:41:07 | __main__                       | INFO     | Starting dataset formatting with chat template...
+2026-05-05 23:41:07 | __main__                       | INFO     | Loading dataset splits from: data/processed/split
+2026-05-05 23:41:07 | __main__                       | INFO     | Loaded splits: ['train', 'val', 'test'] with 13083 total examples
+2026-05-05 23:41:07 | __main__                       | INFO     | Loading tokenizer from: unsloth/Llama-3.2-1B-Instruct
+2026-05-05 23:41:12 | __main__                       | INFO     | Applying chat template to all splits...
+2026-05-05 23:41:12 | __main__                       | INFO     | Formatted dataset with 13083 examples
+2026-05-05 23:41:12 | __main__                       | INFO     | ✓ Formatted dataset saved to: E:\Download\Finetuning-Intent-Detection-Model\data\processed\template
+2026-05-05 23:41:12 | __main__                       | INFO     | 
+--- Sample formatted prompt (first 1000 chars) ---
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 05 May 2026
+
+You are a banking customer support intent classifier. Given a customer message, respond with ONLY the intent category name. Do not provide explanations or additional text.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Classify: For adding money, which currencies do you accept?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+supported_cards_and_currencies<|eot_id|>...

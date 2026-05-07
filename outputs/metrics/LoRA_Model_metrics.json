@@ -1,0 +1,6 @@
+{
+  "exact_match_accuracy": 0.8743506493506493,
+  "macro_f1": 0.7493375408187918,
+  "macro_precision": 0.7566776377302428,
+  "macro_recall": 0.7480555555555556
+}

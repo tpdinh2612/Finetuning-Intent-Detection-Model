@@ -14,10 +14,10 @@ model:
 
 # --- PEFT / LoRA ---
 peft:
-  r: 32                         # LoRA rank — higher = more capacity
-  lora_alpha: 32                # Scaling factor; alpha/r = effective lr multiplier
-  lora_dropout: 0.05              
-  use_dora: true                # DoRA: weight-decomposed low-rank adaptation
+  r: 32                         # LoRA rank — higher capacity (32 vs typical 16)
+  lora_alpha: 32                # Scaling factor for LoRA updates
+  lora_dropout: 0.05            # Dropout probability to prevent overfitting
+  use_dora: true                # DoRA: weight-decomposed low-rank adaptation (stable training)
   use_rslora: true              # rsLoRA: rank-stabilized scaling (alpha/sqrt(r))
   target_modules:
     - q_proj
@@ -32,36 +32,36 @@ peft:
 
 # --- SFTTrainer ---
 training:
-  num_train_epochs: 3
-  per_device_train_batch_size: 8
-  per_device_eval_batch_size: 8
-  gradient_accumulation_steps: 2
-  learning_rate: 2.0e-4
-  lr_scheduler_type: "cosine"
-  warmup_ratio: 0.05
-  weight_decay: 0.01
-  max_grad_norm: 1.0
-  fp16: true
-  bf16: false
-  optim: "adamw_8bit"            # 8-bit AdamW for memory efficiency
-  neftune_noise_alpha: 5        # Add NEFTune noise to embeddings for better generalization
-  logging_steps: 50
-  save_strategy: "steps"
-  save_steps: 50
-  eval_strategy: "steps"
-  eval_steps: 50
-  save_total_limit: 3
-  load_best_model_at_end: true
+  num_train_epochs: 3                   # 3 epochs for thorough convergence with best checkpoint selection
+  per_device_train_batch_size: 8        # Batch size per device
+  per_device_eval_batch_size: 8         # Eval batch size per device
+  gradient_accumulation_steps: 2        # Effective batch: 16 (8 × 2 accumulation steps)
+  learning_rate: 2.0e-4                 # Initial learning rate
+  lr_scheduler_type: "cosine"           # Cosine learning rate decay schedule
+  warmup_ratio: 0.05                    # Percentage of total steps used for learning rate warmup
+  weight_decay: 0.01                    # Regularization penalty to prevent overfitting
+  max_grad_norm: 1.0                    # Threshold for gradient clipping to prevent exploding gradients
+  fp16: true                            # Mixed precision for T4 GPUs
+  bf16: false                           # BFloat16 (for A100/H100)
+  optim: "adamw_8bit"                   # 8-bit AdamW optimizer for reduced memory footprint
+  neftune_noise_alpha: 5                # Add NEFTune noise to embeddings to improve instruction fine-tuning
+  logging_steps: 50                     # Log training metrics every 50 steps
+  save_strategy: "steps"                # Checkpoint saving strategy
+  save_steps: 50                        # Save a model checkpoint every 50 steps
+  eval_strategy: "steps"                # Evaluation strategy during training
+  eval_steps: 50                        # Evaluate the model every 50 steps
+  save_total_limit: 3                   # Keep 3 best checkpoints
+  load_best_model_at_end: true          # Load best checkpoint after training
   metric_for_best_model: "eval_loss"
   greater_is_better: false
-  report_to: "wandb"
+  report_to: "wandb"                    # Report to Weights & Biases
   dataloader_num_workers: 2
   dataloader_pin_memory: true
 
-# --- Early Stopping ---
+# --- Early Stopping (optional, can be enabled via callback) ---
 early_stopping:
-  patience: 3                  # Stop after 3 evals if validation loss doesn't improve
-  threshold: 0.01              # Minimum improvement threshold
+  patience: 3      # Stop after 3 evaluations if loss doesn't improve
+  threshold: 0.01  # Minimum improvement threshold
 
 # --- Weights & Biases ---
 wandb:

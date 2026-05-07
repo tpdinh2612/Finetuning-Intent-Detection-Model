@@ -1,0 +1,38 @@
+name: banking77-finetuning
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  # Python version
+  - python=3.10
+
+  # PyTorch (for GPU support)
+  - pytorch::pytorch::*=*cuda*
+  - pytorch::pytorch-cuda=12.1
+  - pytorch::torchvision
+  - pytorch::torchaudio
+
+  # Data & ML
+  - numpy
+  - pandas
+  - scikit-learn
+  - pyarrow
+
+  # Visualization
+  - matplotlib
+  - seaborn
+  - umap-learn
+
+  # Pip-only packages (via pip)
+  - pip
+  - pip:
+    - unsloth[kaggle-new] @ git+https://github.com/unslothai/unsloth.git
+    - transformers>=4.38.0
+    - peft>=0.7.0
+    - trl>=0.7.0
+    - bitsandbytes>=0.43.0
+    - datasets>=2.14.0
+    - wandb>=0.15.0
+    - pyyaml>=6.0
+    - python-dotenv>=1.0.0
