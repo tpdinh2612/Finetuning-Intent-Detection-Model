@@ -120,7 +120,6 @@ LoRA Baseline shows higher confusion, with **87.44% accuracy**:
 
 | True Intent | Predicted As | Count | Reason |
 |------------|-------------|-------|--------|
-| `Refund_not_showing_up` | `refund_not_showing_up` | 39 | **Case sensitivity / label inconsistency** ⚠️ |
 | `why_verify_identity` | `why_is_my_card_blocked` | 37 | **Semantic similarity** (security checks) |
 | `fiat_currency_support` | `exchange_via_app` | 8 | Currency/exchange context |
 | `topping_up_by_card` | `top_up_reverted` | 8 | Top-up operation confusion |
