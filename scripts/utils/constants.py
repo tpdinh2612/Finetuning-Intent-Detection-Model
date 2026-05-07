@@ -64,7 +64,7 @@ LABEL_MAP: Dict[int, str] = {
     48: "pending_transfer",
     49: "pin_blocked",
     50: "receiving_money",
-    51: "Refund_not_showing_up",
+    51: "refund_not_showing_up",
     52: "request_refund",
     53: "reverted_card_payment?",
     54: "supported_cards_and_currencies",
